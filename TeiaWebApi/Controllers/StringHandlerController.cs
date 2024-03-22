@@ -8,16 +8,21 @@ namespace TeiaWebApi.Controllers;
 public class StringHandlerController : ControllerBase
 {
     /// <summary>
-    /// Handles the incoming string input.
+    /// Handles the incoming POST request with JSON input.
     /// </summary>
-    /// <param name="input">The input string to be handled.</param>
-    /// <returns>The response from handling the input string.</returns>
+    /// <param name="input">The JSON input containing the text to be handled.</param>
+    /// <returns>The result of handling the input text.</returns>
     [HttpPost]
-    public IActionResult Post(HandlerInput input)
+    public IActionResult Post(JSONInput? input)
     {
-        var stringHandler = new StringHandler();
-        var response = stringHandler.HandleString(input);
-        return Ok(response);
+        if (input is not null)
+        {
+            var response = StringHandler.HandleString(input.Texto!);
+            return Ok(response);
+        }
+        else
+        {
+            return BadRequest();
+        }
     }
-
 }

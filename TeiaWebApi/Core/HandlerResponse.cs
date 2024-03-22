@@ -1,4 +1,7 @@
-﻿namespace TeiaWebApi.Core;
+﻿using System.Text.Json.Serialization;
+
+namespace TeiaWebApi.Core;
+
 
 /// <summary>
 /// Represents the response from a handler.
@@ -8,21 +11,23 @@ public readonly struct HandlerResponse
     /// <summary>
     /// Initializes a new instance of the <see cref="HandlerResponse"/> struct.
     /// </summary>
-    /// <param name="palindromo">Indicates whether the input is a palindrome.</param>
-    /// <param name="ocorrencias_caracteres">The occurrences of each character in the input.</param>
-    public HandlerResponse(bool palindromo, Dictionary<char, int> ocorrencias_caracteres) : this()
+    /// <param name="palindromo">Indicates whether the response is a palindrome.</param>
+    /// <param name="ocorrencias_caracteres">The dictionary containing the occurrences of characters.</param>
+    public HandlerResponse(bool palindromo, IReadOnlyDictionary<char, int> ocorrencias_caracteres)
     {
-        Palindromo = palindromo;
-        Ocorrencias_Caracteres = ocorrencias_caracteres;
+        IsPalindrome = palindromo;
+        CharacterCount = ocorrencias_caracteres;
     }
 
     /// <summary>
-    /// Gets a value indicating whether the input is a palindrome.
+    /// Gets a value indicating whether the response is a palindrome.
     /// </summary>
-    public bool Palindromo { get; }
+    [JsonPropertyName("palindromo")]
+    public bool IsPalindrome { get; }
 
     /// <summary>
-    /// Gets the occurrences of each character in the input.
+    /// Gets the dictionary containing the occurrences of characters.
     /// </summary>
-    public Dictionary<char, int> Ocorrencias_Caracteres { get; }
+    [JsonPropertyName("ocorrencias_caracteres")]
+    public IReadOnlyDictionary<char, int> CharacterCount { get; }
 }

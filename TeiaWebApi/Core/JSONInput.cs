@@ -1,12 +1,13 @@
 ﻿namespace TeiaWebApi.Core;
 
+
 /// <summary>
-/// Represents the input for the handler.
+/// Represents the JSON input data.
 /// </summary>
-public readonly struct HandlerInput
+public sealed class JSONInput
 {
     /// <summary>
     /// Gets or sets the text.
     /// </summary>
-    public string Texto { get; init; }
+    public string? Texto { get; init; }
 }
