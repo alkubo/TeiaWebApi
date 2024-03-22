@@ -38,7 +38,7 @@ public static class StringHandler
             return false;
         }
 
-        clearText = new string(text.Where(char.IsLetter).ToArray()).ToLower();
+        clearText = new string(text.Where(c =>  char.IsLetter(c) || char.IsNumber(c)).ToArray()).ToLower();
         return string.IsNullOrWhiteSpace(clearText) is false;
     }
 
