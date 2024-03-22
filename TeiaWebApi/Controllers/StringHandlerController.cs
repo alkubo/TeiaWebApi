@@ -3,7 +3,7 @@ using TeiaWebApi.Core;
 
 namespace TeiaWebApi.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/manipulacao-string")]
 [ApiController]
 public class StringHandlerController : ControllerBase
 {
