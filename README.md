@@ -19,5 +19,5 @@ Observações:
 
   Caso seja passado um texto vazio, totalmente preenchido com caracteres de espaço ou nulo como parâmetro, ele não será considerado como palíndromo e a contagem de caracteres estará zerada.
 
-  O endpoint apenas retornará uma excessão caso o parêmetro de requisição do método Post não contenha um JSON válido, dentro do foramato "{"Texto":"..."}.
+  O endpoint apenas retornará uma exceção caso o parêmetro de requisição do método Post não contenha um JSON válido, dentro do foramato "{"Texto":"..."}.
   
